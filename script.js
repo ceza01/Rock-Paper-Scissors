@@ -51,13 +51,6 @@ function playRound(playerSelection, computerSelection) {
  
 }
 
-/*function game(){
-    
-  const playerSelection = String(prompt("Rock, Paper, Scissors?")).toLowerCase();
-    const computerSelection = getComputerChoice();
-    return (console.log(playRound(playerSelection, computerSelection)));
-  } */
-
 const btn1 = document.querySelector('#btn-rock');
 const btn2 = document.querySelector('#btn-paper');
 const btn3 = document.querySelector('#btn-scissors');
