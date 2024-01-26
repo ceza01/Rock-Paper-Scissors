@@ -1,2 +1,3 @@
 # Rock-Paper-Scissors
-The Odin Project rock, paper scissors project
+Rock, Paper Scissors game, developed using JavaScript. 
+Part of The Foundations course, in The Odin Project.
