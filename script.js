@@ -1,5 +1,6 @@
 let playerPoints = 0;
 let computerPoints = 0;
+const buttons = document.querySelectorAll('button');
 
 function getComputerChoice() {
 
@@ -7,6 +8,12 @@ function getComputerChoice() {
   let escolhaJogo = opJogo[Math.floor(Math.random()* opJogo.length)];
   return(escolhaJogo);
   
+}
+
+function disableBtn() {
+  buttons.forEach(buttons => {
+     buttons.disabled = true;
+  });
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -32,8 +39,16 @@ function playRound(playerSelection, computerSelection) {
     } else {
       result = ("It's a tie!"+ "<br><br>Computer Score: " + computerPoints + "<br>You: " + playerPoints);;
     }
+    if (playerPoints === 5){
+      result = ("You Won! Congratulations! Reload the page to play again");
+      disableBtn();
+    } else if (computerPoints === 5){
+      result = ("You lost! Try again. Reload the page to play one more time");
+      disableBtn();
+    }
     document.querySelector('#results').innerHTML = result;
     return
+ 
 }
 
 /*function game(){
@@ -43,14 +58,13 @@ function playRound(playerSelection, computerSelection) {
     return (console.log(playRound(playerSelection, computerSelection)));
   } */
 
-const computerChoice = getComputerChoice();
 const btn1 = document.querySelector('#btn-rock');
 const btn2 = document.querySelector('#btn-paper');
 const btn3 = document.querySelector('#btn-scissors');
 
-btn1.addEventListener('click', () => playRound('rock', computerChoice));
-btn2.addEventListener('click', () => playRound('paper', computerChoice));
-btn3.addEventListener('click', () => playRound('scissors', computerChoice));
+btn1.addEventListener('click', () => playRound('rock', getComputerChoice()));
+btn2.addEventListener('click', () => playRound('paper', getComputerChoice()));
+btn3.addEventListener('click', () => playRound('scissors', getComputerChoice()));
 
 const div = document.createElement('div');
 div.id = "results";
